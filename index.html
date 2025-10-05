@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumor Squad</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: "Inter", sans-serif;
+      background: #121212;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+      animation: subtleShift 10s ease-in-out infinite alternate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    @keyframes subtleShift {
+      0% { background-color: #121212; }
+      50% { background-color: #141414; }
+      100% { background-color: #121212; }
+    }
+
+    h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      text-shadow: 0 0 8px rgba(255,255,255,0.25),
+                   0 0 20px rgba(255,255,255,0.1);
+      animation: floatSmooth 6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      z-index: 1;
+    }
+
+    @keyframes floatSmooth {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Ракеты */
+    .rocket {
+      position: fixed;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255,255,255,0.7);
+      z-index: 2;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .rocket img {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      transform: translateY(25px);
+      z-index: 3;
+    }
+
+    .trail {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      width: 16px;
+      height: 220px;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 120, 200, 0.8),
+        rgba(0, 200, 255, 0.4),
+        rgba(0, 255, 255, 0)
+      );
+      filter: blur(8px);
+      opacity: 0.9;
+      border-radius: 20px;
+      animation: trailFlow 1.2s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes trailFlow {
+      0% { opacity: 0.7; transform: translateX(-50%) scaleY(1); }
+      50% { opacity: 1; transform: translateX(-50%) scaleY(1.2); }
+      100% { opacity: 0.8; transform: translateX(-50%) scaleY(1); }
+    }
+
+    .icon {
+      font-size: 1.6rem;
+      color: #e0e0e0;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 15px 40px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      z-index: 10;
+    }
+
+    a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="rocket">
+    🚀
+    <img src="https://i.postimg.cc/g0d6Mpk6/Screenshot-1.png" alt="photo">
+    <div class="trail"></div>
+  </div>
+  <div class="rocket">
+    🚀
+    <img src="https://i.postimg.cc/g0d6Mpk6/Screenshot-1.png" alt="photo">
+    <div class="trail"></div>
+  </div>
+  <div class="rocket">
+    🚀
+    <img src="https://i.postimg.cc/g0d6Mpk6/Screenshot-1.png" alt="photo">
+    <div class="trail"></div>
+  </div>
+
+  <h1>
+    <i class="fa-solid fa-bolt icon"></i>
+    Lumor&nbsp;Squad
+    <i class="fa-solid fa-bolt icon"></i>
+  </h1>
+
+  <a href="https://t.me/your_bot_username" target="_blank">
+    <i class="fa-brands fa-telegram"></i>БОТ
+  </a>
+  <a href="https://t.me/your_chat_link" target="_blank">
+    <i class="fa-solid fa-comments"></i>ЧАТ
+  </a>
+  <a href="https://t.me/your_payout_channel" target="_blank">
+    <i class="fa-solid fa-wallet"></i>ВЫПЛАТЫ
+  </a>
+
+  <script>
+    class Rocket {
+      constructor(el) {
+        this.el = el;
+        this.x = Math.random() * (window.innerWidth - 200);
+        this.y = Math.random() * (window.innerHeight - 200);
+        this.dx = (Math.random() - 0.5) * 12;
+        this.dy = (Math.random() - 0.5) * 12;
+        this.flyingAway = false;
+
+        this.el.style.left = `${this.x}px`;
+        this.el.style.top = `${this.y}px`;
+        this.el.style.position = 'fixed';
+
+        this.el.addEventListener('click', () => this.flyAway());
+      }
+
+      flyAway() {
+        if (this.flyingAway) return;
+        this.flyingAway = true;
+        const randomAngle = Math.random() * 2 * Math.PI;
+        const distance = 1000 + Math.random() * 800;
+        const targetX = this.x + Math.cos(randomAngle) * distance;
+        const targetY = this.y + Math.sin(randomAngle) * distance;
+
+        this.el.style.transition = 'transform 1s cubic-bezier(0.2,0.8,0.2,1), opacity 1.2s ease-in';
+        this.el.style.transform = `translate(${targetX - this.x}px, ${targetY - this.y}px) rotate(${Math.random() * 720 - 360}deg)`;
+        this.el.style.opacity = '0';
+
+        setTimeout(() => {
+          this.el.style.transition = 'none';
+          this.el.style.transform = 'none';
+          this.el.style.opacity = '1';
+          this.x = Math.random() * (window.innerWidth - 200);
+          this.y = Math.random() * (window.innerHeight - 200);
+          this.flyingAway = false;
+        }, 1800);
+      }
+
+      move() {
+        if (!this.flyingAway) {
+          this.x += this.dx;
+          this.y += this.dy;
+
+          if (this.x <= 0 || this.x >= window.innerWidth - 200) this.dx *= -1;
+          if (this.y <= 0 || this.y >= window.innerHeight - 200) this.dy *= -1;
+
+          this.el.style.left = `${this.x}px`;
+          this.el.style.top = `${this.y}px`;
+        }
+      }
+    }
+
+    const rockets = Array.from(document.querySelectorAll('.rocket')).map(r => new Rocket(r));
+
+    function animate() {
+      rockets.forEach(r => r.move());
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
